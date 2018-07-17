@@ -5,11 +5,12 @@
     <title>YN UI5 Data Binding</title>
     <script
         id="sap-ui-bootstrap"
-        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        src="https://openui5.hana.ondemand.com/1.42.6/resources/sap-ui-core.js"
         data-sap-ui-theme="sap_belize"
         data-sap-ui-libs="sap.m"
         data-sap-ui-compatVersion="edge"
-        data-sap-ui-preload="async">
+        data-sap-ui-preload="async"
+        data-sap-ui-resourceroots='{ "sap.ui.demo.db": "./" }'>
 
     </script>
     <script>
@@ -17,14 +18,17 @@
 
             // Create a JSON model from an object literal
             var oModel = new sap.ui.model.json.JSONModel({
-                greetingText: "Hi, my name is Piper"
+                firstName: "Piper",
+                lastName: "Wright",
+                enabled: true,
+                panelHeaderText: "Dat Binding Basics"
             });
 
             // Assign the model object to the SAPUI5 core
             sap.ui.getCore().setModel(oModel);
 
-            // Display a text element whose text is derived from the model object
-            new sap.m.Text({text: "{/greetingText}"})
+            // Display the XML view called "App"
+            new sap.ui.core.mvc.XMLView({ viewName: "sap.ui.demo.db.view.App"})
                 .placeAt("content");
 
         });
