@@ -20,14 +20,21 @@
             var oModel = new sap.ui.model.json.JSONModel({
                 firstName: "Piper",
                 lastName: "Wright",
-                enabled: true,
-                panelHeaderText: "Dat Binding Basics"
+                enabled: true
             });
 
             oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
 
             // Assign the model object to the SAPUI5 core
             sap.ui.getCore().setModel(oModel);
+
+            // Create a resource bundle for language specific texts
+            var oResourceModel = new sap.ui.model.resource.ResourceModel({
+                bundleName: "sap.ui.demo.db.i18n.i18n"
+            });
+
+            // Assign the model object to the SAPUI5 core using the name "i18n"
+            sap.ui.getCore().setModel(oResourceModel, "i18n");
 
             // Display the XML view called "App"
             new sap.ui.core.mvc.XMLView({ viewName: "sap.ui.demo.db.view.App"})
