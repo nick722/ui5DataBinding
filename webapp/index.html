@@ -20,7 +20,13 @@
             var oModel = new sap.ui.model.json.JSONModel({
                 firstName: "Piper",
                 lastName: "Wright",
-                enabled: true
+                enabled: true,
+                address : {
+                    street : 'Zastavskaya 22',
+                    city: "Saint Petersburg",
+                    zip : '198000',
+                    country : 'Russia'
+                }
             });
 
             oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay);
